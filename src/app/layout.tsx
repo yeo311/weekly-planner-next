@@ -16,7 +16,7 @@ const sans = Noto_Sans({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`${sans.className} p-4`}>
+      <body className={`${sans.className}`}>
         <Header />
         {children}
         <FloatingButton />

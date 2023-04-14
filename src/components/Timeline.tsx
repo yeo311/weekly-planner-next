@@ -1,3 +1,8 @@
+import Divider from './Divider';
+import Part from './Part';
+import TodoItem from './TodoItem';
+import TodoWrap from './TodoWrap';
+
 type Props = {
   year: string;
   month: string;
@@ -17,10 +22,11 @@ export default function Timeline({ year, month, day }: Props) {
   return (
     <>
       <section className='flex justify-between'>
+        <div className='flex-none w-14' />
         {days.map((day) => (
           <div
             key={day}
-            className={`border w-full font-bold py-5 ${
+            className={`w-full font-bold py-5 ml-2 ${
               day === 'Monday 21' ? 'text-black' : 'text-gray-400'
             }`}
           >
@@ -28,18 +34,59 @@ export default function Timeline({ year, month, day }: Props) {
           </div>
         ))}
       </section>
-      <section className='flex justify-between'>
-        {days.map((day) => (
-          <div key={day} className='w-full'>
-            <div
-              style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2 }}
-              className='bg-green-200 p-2 rounded-lg h-16 w-full text-ellipsis overflow-hidden leading-2'
-            >
-              Hello Mynanmeis sadfkadslfk dkdkdkd dkdkdkdkdksadklfjasdf asdlfkjadlskfj
-            </div>
-          </div>
-        ))}
+      <Divider />
+      <section>
+        <div className='flex justify-between min-h-[120px]'>
+          <Part text='morning' color='emerald' />
+          <div className='border-r'></div>
+          {days.map((day) => (
+            <TodoWrap key={day}>
+              <TodoItem todo='일어나서 약먹기' color='emerald' />
+              <TodoItem todo='아침에 할일이 많네요' color='emerald' />
+            </TodoWrap>
+          ))}
+        </div>
       </section>
+      <Divider />
+      <section>
+        <div className='flex justify-between min-h-[120px]'>
+          <Part text='afternoon' color='red' />
+          <div className='border-r'></div>
+          {days.map((day) => (
+            <TodoWrap key={day}>
+              <TodoItem todo='점심먹고 산책하기' color='red' />
+              <TodoItem todo='실습 준비하기' color='red' />
+            </TodoWrap>
+          ))}
+        </div>
+      </section>
+      <Divider />
+      <section>
+        <div className='flex justify-between min-h-[120px]'>
+          <Part text='evening' color='sky' />
+          <div className='border-r'></div>
+          {days.map((day) => (
+            <TodoWrap key={day}>
+              <TodoItem todo='점심먹고 산책하기' color='sky' />
+              <TodoItem todo='실습 준비하기' color='sky' />
+            </TodoWrap>
+          ))}
+        </div>
+      </section>
+      <Divider />
+      <section>
+        <div className='flex justify-between min-h-[120px]'>
+          <Part text='day' color='orange' />
+          <div className='border-r'></div>
+          {days.map((day) => (
+            <TodoWrap key={day}>
+              <TodoItem todo='점심먹고 산책하기' color='orange' />
+              <TodoItem todo='실습 준비하기' color='orange' />
+            </TodoWrap>
+          ))}
+        </div>
+      </section>
+      <Divider />
     </>
   );
 }
